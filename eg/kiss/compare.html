@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Do you like kiss.h or not?</title>
+<style>
+script[type=c], script[type=text] {
+	display: block;
+	font-family: monospace;
+	white-space: pre;
+}
+body {
+	padding-bottom: 2em;
+}
+.column {
+	float: left;
+	min-width: 30em;
+	margin-right: 4em;
+	margin-bottom: 2em;
+}
+.clear {
+	clear: both;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Do you like kiss.h or not?</h1>
+
+<div class="columns">
+
+<div class="column">
+<h2>With <tt>kiss.h</tt>:</h2>
+<script type="c">#include <stdlib.h>
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
+#include "kiss.h"
+
+int main(void)
+{
+	char *space = NULL;
+	FILE *fp = NULL;
+
+	INFO("Hello");
+	space = MALLOC(1000);
+	space = REALLOC(space, 10000);
+	fp = FOPEN("asdfasdf", "r");
+	FCLOSE(fp);
+	FREE(space);
+	INFO("Bye");
+	exit(0);
+error:
+	exit(1);
+}
+</script>
+<h2>Output:</h2>
+<script type="text">[INFO]  eg/test.c:12 main: Hello
+[ERROR] eg/test.c:15 main: fopen failed: asdfasdf: No such file or directory
+</script>
+<h2>Output when compiled with <tt>-DNDEBUG</tt>:</h2>
+<script type="text">Hello
+fopen failed: asdfasdf: No such file or directory
+</script>
+</div>
+
+<div class="column">
+<h2>With <tt>kiss.h</tt>, only using <tt>CHECK</tt> and <tt>INFO</tt>:</h2>
+<script type="c">#include <stdlib.h>
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
+#include "kiss.h"
+
+int main(void)
+{
+	char *space = NULL;
+	char *space2 = NULL;
+	char *filename = "asdfasdf";
+	FILE *fp = NULL;
+
+	INFO("Hello");
+	CHECK(space = malloc(1000), "malloc failed");
+	CHECK(space2 = realloc(space, 10000), "realloc failed");
+	space = space2;
+	CHECK(fp = fopen(filename, "r"), "fopen failed: %s", filename);
+	CHECK(fclose(fp) == 0, "fclose failed");
+	free(space);
+	space = NULL;
+	INFO("Bye");
+	exit(0);
+error:
+	exit(1);
+}
+</script>
+<h2>Output:</h2>
+<script type="text">[INFO]  eg/test2.c:14 main: Hello
+[ERROR] eg/test2.c:18 main: fopen failed: asdfasdf: No such file or directory
+</script>
+<h2>Output when compiled with <tt>-DNDEBUG</tt>:</h2>
+<script type="text">Hello
+fopen failed: asdfasdf: No such file or directory
+</script>
+</div>
+
+<div class="column">
+<h2>Without <tt>kiss.h</tt>, minimal</h2>
+<script type="c">#include <stdlib.h>
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
+
+int main(void)
+{
+	char *space = NULL;
+	char *space2 = NULL;
+	FILE *fp = NULL;
+
+	fprintf(stderr, "Hello\n");
+	space = malloc(1000);
+	if (!space)
+		goto error;
+	space2 = realloc(space, 10000);
+	if (!space2)
+		goto error;
+	space = space2;
+	fp = fopen("asdfasdf", "r");
+	if (!fp)
+		goto error;
+	if (fclose(fp) < 0)
+		goto error;
+	fp = NULL;
+	free(space);
+	space = NULL;
+	fprintf(stderr, "Bye\n");
+	exit(0);
+error:
+	perror("error");
+	exit(1);
+}
+</script>
+<h2>Output:</h2>
+<script type="text">Hello
+error: No such file or directory
+</script>
+</div>
+
+<br class="clear">
+
+</div>
+
+</body>
+</html>

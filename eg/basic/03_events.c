@@ -5,6 +5,7 @@ int dy = 0;
 
 void draw(void)
 {
+	colour(30, 60, 90);
 	rect(100, y, 200, 300);
 	y += dy;
 }

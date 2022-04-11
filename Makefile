@@ -28,5 +28,5 @@ default:
 build-dep:
 	sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev libglew-dev libsdl2-gfx-dev
 
-basic/basic.a: basic/basic.o basic/init.o basic/draw.o basic/keydown.o basic/keyup.o basic/title.o
+basic/basic.a: basic/basic.o basic/init.o basic/drawing.o basic/draw.o basic/keydown.o basic/keyup.o basic/title.o
 	ar r $@ $^

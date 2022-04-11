@@ -2,8 +2,8 @@
 
 extern char *title;
 SDL_Window *window;
-//SDL_Surface *screen;
 SDL_Renderer *renderer;
+//SDL_Surface *screen;
 // SDL_Texture *obj_texture;
 
 int f = 0;
@@ -91,18 +91,4 @@ error:
 //	SDL_DestroyTexture(obj_texture);
 	close_sdl();
 	exit(exit_status);
-}
-
-void rect(int x, int y, int w, int h)
-{
-	SDL_Rect clip = { x, y, w, h };
-	SDL_SetRenderDrawColor(renderer, 0xFF, 0x7F, 0x3F, 0xFF);
-	SDL_RENDERFILLRECT(renderer, &clip);
-error:
-}
-
-void circle(int x, int y, int r)
-{
-	filledCircleRGBA(renderer, x, y, r, 0, 0, 255, 255);
-	// wrapper error handle
 }

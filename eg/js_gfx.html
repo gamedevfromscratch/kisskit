@@ -1,0 +1,16 @@
+<canvas id="myCanvas" width="800" height="600" style="width: 800px; height: 600px; background: black;"></canvas>
+<script>
+const canvas = document.getElementById('myCanvas');
+const context = canvas.getContext('2d');
+
+context.strokeStyle = 'white';
+
+context.beginPath();
+context.moveTo(100, 100);
+context.lineTo(300, 200);
+context.stroke();
+
+context.beginPath();
+context.arc(300, 200, 50, 0, 2 * Math.PI, false);
+context.stroke();
+</script>

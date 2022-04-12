@@ -7,5 +7,7 @@
 #include <stdint.h>
 #include <errno.h>
 #include <string.h>
+#include <time.h>
+#include <math.h>
 // #include <assert.h>
 #include "kiss.h"

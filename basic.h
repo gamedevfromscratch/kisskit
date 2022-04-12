@@ -13,4 +13,5 @@ extern char *title;
 void colour(Uint8 r, Uint8 g, Uint8 b);
 #define color(r, g, b) colour(r, g, b)
 void rect(int x, int y, int w, int h);
+void rectc(int cx, int cy, int w, int h);
 void circle(int x, int y, int r);

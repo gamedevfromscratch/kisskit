@@ -14,7 +14,8 @@ int init_sdl(void)
 
 	SDL_INIT(SDL_INIT_VIDEO);
 	IMG_INIT(IMG_INIT_PNG);
-	window = SDL_CREATEWINDOW(title, 50, 50, 1280, 1024, 0);
+	TTF_INIT();
+	window = SDL_CREATEWINDOW(title, 50, 50, 800, 600, 0);
 	renderer = SDL_CREATERENDERER(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	status = 0;
 error:
@@ -27,6 +28,7 @@ void close_sdl(void)
 {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
 }
@@ -62,9 +64,9 @@ int main(int argc, char *argv[])
 	else
 		title = "Basic SDL App";
 
-	init();
-
 	INIT_SDL();
+
+	init();
 
 	for (;;) {
 		while (SDL_PollEvent(&e)) {
@@ -76,8 +78,9 @@ int main(int argc, char *argv[])
 				keyup(e.key.keysym.sym);
 		}
 
-		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+		colour(0, 0, 0);
 		SDL_RENDERCLEAR(renderer);
+		colour(255, 255, 255);
 		draw();
 		SDL_RenderPresent(renderer);
 

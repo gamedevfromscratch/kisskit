@@ -11,6 +11,13 @@ void rect(int x, int y, int w, int h)
 	SDL_Rect clip = { x, y, w, h };
 	SDL_RENDERFILLRECT(renderer, &clip);
 error:
+	;
+}
+
+void rectc(int cx, int cy, int w, int h)
+{
+	// TODO better use x and y "radius"?
+	rect(cx - w / 2, cy - h / 2, w, h);
 }
 
 void circle(int x, int y, int radius)

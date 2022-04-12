@@ -1,0 +1,3 @@
+#!/bin/sh
+# This is not 100%, indent messes some things up.
+indent -kr -i8 -l1024 -lc1024 -il0 -nfca "$@"

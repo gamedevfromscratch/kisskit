@@ -25,8 +25,24 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 - SDL tutorial programs
 - HTML page to compare code with and without kiss.h
 
-## [0.0.1-wip.1] - 2022-04-11
+## Unreleased - 2022-04-12
 
 ### Added
 
-- colour function
+- basic:
+	- colour function
+
+### Fixed:
+
+- default colour, white
+- follow an `error:` label at the end with a semi-colon, for gcc-10
+- move some files and folders around
+
+### Work in Progress:
+
+- basic:
+	- rectc function, to draw a rectangle from its center
+	- text drawing with TTF
+	- random numbers
+
+- brace

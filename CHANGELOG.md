@@ -31,6 +31,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 - basic:
 	- colour function
+	- line function
+	- example: eg/sdl_gfx.c
 
 ### Fixed:
 
@@ -44,6 +46,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 	- rectc function, to draw a rectangle from its center
 	- text drawing with TTF
 	- random numbers
+	- circle0 function
 
 - brace and unbrace tools, to program in C with a lighter syntax, similar to
   Python.

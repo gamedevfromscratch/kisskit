@@ -1,4 +1,4 @@
-PKGS=sdl2 SDL2_image SDL2_ttf SDL2_mixer SDL2_gfx
+PKGS=sdl2 SDL2_gfx SDL2_ttf SDL2_image SDL2_mixer
 CFLAGS=-Wall -Wextra -Wstrict-prototypes -g -D_FILE_OFFSET_BITS=64 -Uunix -Ulinux $(shell pkg-config --cflags $(PKGS)) -I.
 LDLIBS=basic/basic.a -lm $(shell pkg-config --libs $(PKGS))
 UNAME_S := $(shell uname -s)
@@ -26,7 +26,7 @@ endif
 default:
 
 build-dep:
-	sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev libglew-dev libsdl2-gfx-dev
+	sudo apt-get install libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libsdl2-image-dev libsdl2-mixer-dev libglew-dev
 
 basic/basic.a: basic/basic.o basic/init.o basic/drawing.o basic/draw.o basic/keydown.o basic/keyup.o basic/title.o
 	ar r $@ $^

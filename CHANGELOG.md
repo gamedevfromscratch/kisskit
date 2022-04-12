@@ -45,4 +45,5 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 	- text drawing with TTF
 	- random numbers
 
-- brace
+- brace and unbrace tools, to program in C with a lighter syntax, similar to
+  Python.

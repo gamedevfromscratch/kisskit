@@ -15,8 +15,7 @@ void keydown(int key)
 	if (key == SDLK_UP) {
 		printf("Up\n");
 		dy--;
-	}
-	else if (key == SDLK_DOWN) {
+	} else if (key == SDLK_DOWN) {
 		printf("Down\n");
 		dy++;
 	}

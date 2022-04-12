@@ -33,6 +33,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 	- colour function
 	- line function
 	- example: eg/sdl_gfx.c
+- autorun script
+	- Rebuild and re-run a program when the source code is saved.
+	- conf/vimrc remaps <F1> to save the file
+	- When we change a drawing program, we can save and see the changes
+	  right away.
 
 ### Fixed:
 
@@ -48,5 +53,4 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 	- random numbers
 	- circle0 function
 
-- brace and unbrace tools, to program in C with a lighter syntax, similar to
-  Python.
+- brace and unbrace tools, to program in C with a light syntax like Python.

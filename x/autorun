@@ -1,0 +1,19 @@
+#!/bin/bash -u
+# rebuild and run a C program
+src=$1
+exe=${1%.c}
+rm "$exe"
+PID=
+while true; do
+	if [ "$src" -nt "$exe" ]; then
+		kill $PID
+		clear
+		make "$exe" || touch "$exe"
+		A=`xactivewindow`
+		./"$exe" & PID=$!
+		sleep 0.5
+		xtile -a /2
+		xdotool windowactivate $A
+	fi
+	sleep 0.1
+done

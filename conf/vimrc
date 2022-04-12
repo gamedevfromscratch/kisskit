@@ -1,0 +1,6 @@
+"autocmd TextChanged,TextChangedI <buffer> silent write
+
+" <F1> to save the file
+" Use this together with the autorun script, to see changes to a drawing.
+nnoremap <F1> :update<cr>
+inoremap <F1> <Esc>:update<cr>gi

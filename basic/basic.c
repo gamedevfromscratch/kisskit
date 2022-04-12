@@ -14,7 +14,7 @@ int init_sdl(void)
 
 	SDL_INIT(SDL_INIT_VIDEO);
 	IMG_INIT(IMG_INIT_PNG);
-	window = SDL_CREATEWINDOW(title, 50, 50, 1280, 1024, 0);
+	window = SDL_CREATEWINDOW(title, 50, 50, 800, 600, 0);
 	renderer = SDL_CREATERENDERER(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	status = 0;
 error:
@@ -76,8 +76,9 @@ int main(int argc, char *argv[])
 				keyup(e.key.keysym.sym);
 		}
 
-		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+		colour(0, 0, 0);
 		SDL_RENDERCLEAR(renderer);
+		colour(255, 255, 255);
 		draw();
 		SDL_RenderPresent(renderer);
 

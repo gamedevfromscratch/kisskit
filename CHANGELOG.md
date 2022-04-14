@@ -53,6 +53,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 	- random numbers
 	- circle0 function
 	- tri and tri0 functions
+	- quad function
 	- line_width
 
 - brace and unbrace tools, to program in C with a light syntax like Python.

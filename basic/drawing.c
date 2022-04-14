@@ -61,3 +61,12 @@ void tri0(int x0, int y0, int x1, int y1, int x2, int y2) {
 	trigonRGBA(renderer, x0, y0, x1, y1, x2, y2, r, g, b, a);
 	// TODO handle errors
 }
+
+void quad(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3) {
+	Sint16 vx[4] = { x0, x1, x2, x3 };
+	Sint16 vy[4] = { y0, y1, y2, y3 };
+	Uint8 r, g, b, a;
+	SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
+	filledPolygonRGBA(renderer, vx, vy, 4, r, g, b, a);
+	// TODO handle errors
+}

@@ -20,3 +20,4 @@ void circle(int x, int y, int r);
 void circle0(int x, int y, int r);
 void tri(int x0, int y0, int x1, int y1, int x2, int y2);
 void tri0(int x0, int y0, int x1, int y1, int x2, int y2);
+void quad(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3);

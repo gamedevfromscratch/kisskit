@@ -59,3 +59,4 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### To-do:
 
 - use single function for fill and outline, with separate colour options
+- automatic header generation

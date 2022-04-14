@@ -2,6 +2,7 @@
 
 extern SDL_Window *window;
 extern SDL_Renderer *renderer;
+extern int line_width;
 
 void init(void);
 void draw(void);

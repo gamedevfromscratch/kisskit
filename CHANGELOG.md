@@ -53,10 +53,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 	- random numbers
 	- circle0 function
 	- tri and tri0 functions
+	- line_width
 
 - brace and unbrace tools, to program in C with a light syntax like Python.
 
 ### To-do:
 
 - use single function for fill and outline, with separate colour options
+- use line_width for all shapes
+- use GL instead of SDL gfx?
 - automatic header generation

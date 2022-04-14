@@ -1,14 +1,14 @@
 #!/bin/bash -u
 # rebuild and run a C program
 src=$1
-exe=${1%.c}
+exe=${src%.c}
 rm "$exe"
 PID=
 while true; do
 	if [ "$src" -nt "$exe" ]; then
 		kill $PID
 		clear
-		make "$exe" || touch "$exe"
+		ccw "$src" || touch "$exe"
 		A=`xactivewindow`
 		./"$exe" & PID=$!
 		sleep 0.5

@@ -42,3 +42,17 @@ void circle0(int x, int y, int radius)
 	circleRGBA(renderer, x, y, radius, r, g, b, a);
 	// TODO handle errors
 }
+
+void tri(int x0, int y0, int x1, int y1, int x2, int y2) {
+	Uint8 r, g, b, a;
+	SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
+	filledTrigonRGBA(renderer, x0, y0, x1, y1, x2, y2, r, g, b, a);
+	// TODO handle errors
+}
+
+void tri0(int x0, int y0, int x1, int y1, int x2, int y2) {
+	Uint8 r, g, b, a;
+	SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
+	trigonRGBA(renderer, x0, y0, x1, y1, x2, y2, r, g, b, a);
+	// TODO handle errors
+}

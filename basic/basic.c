@@ -11,9 +11,14 @@ int f = 0;
 int init_sdl(void)
 {
 	int status = -1;
+	int sample_rate = 44100;
+	int channels = 2;
+	int chunk_size = 2048;
 
 	SDL_INIT(SDL_INIT_VIDEO);
 	IMG_INIT(IMG_INIT_PNG);
+	MIX_INIT(MIX_INIT_OGG);
+	MIX_OPENAUDIO(sample_rate, MIX_DEFAULT_FORMAT, channels, chunk_size);
 	TTF_INIT();
 	window = SDL_CREATEWINDOW(title, 50, 50, 800, 600, 0);
 	renderer = SDL_CREATERENDERER(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);

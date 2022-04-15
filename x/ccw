@@ -3,10 +3,10 @@ KISSKIT=~/kisskit
 PKGS="sdl2 SDL2_gfx SDL2_ttf SDL2_image SDL2_mixer"
 CFLAGS="-Wall -Wextra -Wstrict-prototypes -g -ggdb -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -Uunix -Ulinux $(pkg-config --cflags $PKGS) -I/usr/X11R6/include -I$KISSKIT -I."
 LDLIBS=
-for L in $KISSKIT/basic/basic.a; do
-	[ -e "$L" ] || continue
-	LDLIBS="$LDLIBS $L"
-done
+if [ -d "$KISSKIT" ]; then
+	(cd $KISSKIT; make basic/basic.a)
+	LDLIBS="$LDLIBS $KISSKIT/basic/basic.a"
+fi
 LDLIBS="$LDLIBS -lm $(pkg-config --libs $PKGS) -lcrypt -L/usr/X11R6/lib -lX11 -lXext -lGL -lGLU -lGLEW"
 C="$1" ; shift
 O="${C%.*}"

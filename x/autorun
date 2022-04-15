@@ -1,19 +1,24 @@
 #!/bin/bash -u
 # rebuild and run a C program
+delay=0.5
+. opts
 src=$1
 exe=${src%.c}
-rm "$exe"
+if [[ $exe != */* ]]; then
+	exe=./$exe
+fi
+rm -f "$exe"
 PID=
 while true; do
 	if [ "$src" -nt "$exe" ]; then
-		kill $PID
+		kill $PID || true
 		clear
 		ccw "$src" || touch "$exe"
-		A=`xactivewindow`
-		./"$exe" & PID=$!
-		sleep 0.5
-		xtile -a /2
-		xdotool windowactivate $A
+		editor=`xdotool getactivewindow`
+		"$exe" & PID=$!
+		sleep $delay
+		xdotool getactivewindow windowmove 0 0
+		xdotool windowactivate $editor
 	fi
 	sleep 0.1
 done

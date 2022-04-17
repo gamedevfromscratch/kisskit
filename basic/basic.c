@@ -6,7 +6,7 @@ SDL_Renderer *renderer;
 //SDL_Surface *screen;
 // SDL_Texture *obj_texture;
 
-int f = 0;
+int frame = 0;
 
 int init_sdl(void)
 {
@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 		draw();
 		SDL_RenderPresent(renderer);
 
-		f++;
+		frame++;
 	}
 
 quit:

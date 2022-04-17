@@ -8,7 +8,7 @@ void init(void);
 void draw(void);
 void keydown(int key);
 void keyup(int key);
-extern int f;
+extern int frame;
 extern char *title;
 
 void colour(Uint8 r, Uint8 g, Uint8 b);
